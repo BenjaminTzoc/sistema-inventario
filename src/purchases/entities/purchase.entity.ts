@@ -1,7 +1,7 @@
 import { PurchaseDetail } from "src/purchases/entities/purchase_detail.entity";
 import { PurchasePayment } from "src/purchases/entities/purchase_payment.entity";
-import { Supplier } from "src/suppliers/supplier.entity";
-import { User } from "src/users/user.entity";
+import { Supplier } from "src/suppliers/entities/supplier.entity";
+import { User } from "src/users/entities/user.entity";
 import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 export enum PurchaseStatus {

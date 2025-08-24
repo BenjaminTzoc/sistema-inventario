@@ -1,14 +1,14 @@
-import { Product } from "src/product/entities/product.entity";
-import { Purchase } from "src/purchase/entities/purchase.entity";
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Sale } from "./sale.entity";
+import { Product } from "src/products/entities/product.entity";
 
-@Entity('purchase_details')
-export class PurchaseDetail {
+@Entity('sale_details')
+export class SaleDetail {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne(() => Purchase, purchase => purchase.details, { onDelete: 'CASCADE' })
-    purchase: Purchase;
+    @ManyToOne(() => Sale, sale => sale.details, { onDelete: 'CASCADE' })
+    sale: Sale;
 
     @ManyToOne(() => Product, product => product.purchaseDetails, { eager: true })
     product: Product;

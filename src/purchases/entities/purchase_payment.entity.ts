@@ -1,6 +1,6 @@
-import { PaymentMethod } from "src/payment_methods/payment_method.entity";
+import { PaymentMethod } from "src/payment-methods/entities/payment_method.entity";
 import { Purchase } from "src/purchases/entities/purchase.entity";
-import { User } from "src/users/user.entity";
+import { User } from "src/users/entities/user.entity";
 import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 export enum PaymentStatus {

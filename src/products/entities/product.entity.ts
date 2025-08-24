@@ -1,7 +1,7 @@
-import { ProductCategory } from "src/product/entities/product-category.entity";
-import { PurchaseDetail } from "src/purchase/entities/purchase-detail.entity";
+import { ProductCategory } from "src/products/entities/product-category.entity";
+import { PurchaseDetail } from "src/purchases/entities/purchase_detail.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import { UnitMeasure } from "./unit-measure.entity";
+import { UnitMeasure } from "./unit_measure.entity";
 
 @Entity('products')
 export class Product {

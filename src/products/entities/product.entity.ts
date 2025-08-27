@@ -9,8 +9,10 @@ export class Product {
     id: number;
 
     @ManyToOne(() => ProductCategory, category => category.products, { eager: true, nullable: true })
-    @JoinColumn({ name: 'categoryId' })
     category: ProductCategory;
+
+    @ManyToOne(() => UnitMeasure, { eager: true, nullable: false })
+    unit_measure: UnitMeasure;
 
     @OneToMany(() => PurchaseDetail, detail => detail.product)
     purchaseDetails: PurchaseDetail[];
@@ -29,9 +31,6 @@ export class Product {
     
     @Column({ type: 'numeric', precision: 10, scale: 2, default: 0 })
     stock: number;
-
-    @ManyToOne(() => UnitMeasure, unit => unit.products, { eager: true, nullable: false })
-    unit_measure: UnitMeasure;
 
     @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     created_at: Date;

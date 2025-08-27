@@ -1,12 +1,6 @@
 import { Product } from "src/products/entities/product.entity";
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-
-export enum UnitMeasure {
-    POUND = 'lb',
-    UNIT = 'unidad',
-    KILOGRAM = 'kg',
-    LITER = 'lt',
-}
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { UnitMeasure } from "./unit_measure.entity";
 
 @Entity('product_categories')
 export class ProductCategory {
@@ -22,8 +16,8 @@ export class ProductCategory {
     @Column({ nullable: true })
     description: string;
 
-    @Column({ type: 'enum', enum: UnitMeasure, default: UnitMeasure.POUND })
-    unit_measure: UnitMeasure;
+    @ManyToOne(() => UnitMeasure, { eager: true, nullable: false })
+    default_unit_measure: UnitMeasure;
 
     @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
     created_at: Date;
